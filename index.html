@@ -17,34 +17,35 @@
             <div class="col-md-12">
                 <form>
                     <div>
+                        <div id="error">
+                            <h4 data-bind="text: error"></h4>
+                        </div>
                         <h3>Look for one of my favorite places</h3>
                         <input class="col-sm-12 input" type="text" name="searchbox" id="searchbox" data-bind="value: searchFiltertext, valueUpdate: 'afterkeydown', event: {keyup: filterList}" placeholder="eg : Look for a place">
                     </div>
                 </form>
             </div>
         </div>
-        <div class="container">
-            <div class="row">
-                <div class="col-md-12">
-                    <ul data-bind="foreach: mapmarkerdata">
-                        <li class="col-md-12 col-sm-6" data-bind="text: title, click: $parent.setMarkers, visible:showItem"></li>
-                    </ul>
-                </div>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <ul data-bind="foreach: mapmarkerdata">
+                    <li class="col-md-12 col-sm-6" data-bind="text: title, click: $parent.setMarkers, visible:showItem"></li>
+                </ul>
             </div>
         </div>
-        <div class="container">
-            <div class="row">
-                <div class="col-sm-12" id="Mymap"></div>
-                <div id="error">
-                    <h4 data-bind="text: error"></h4>
-                </div>
-            </div>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12" id="Mymap"></div>
         </div>
+    </div>
+    <script src="https://ajax.aspnetcdn.com/ajax/knockout/knockout-3.4.2.js"></script>
+    <script src="js/map.js" async defer></script>
+    <script src="js/model.js" async defer></script>
+    <script src="js/Viewmodel.js" async defer></script>
+    <script async src="https://maps.googleapis.com/maps/api/js?libraries=places&key=AIzaSyDkFyT5P5CLI9vP0pVd8WBvhBQRM6lU8N0&callback=initMap" onerror="mapError()"></script>
 </body>
-<script src="https://ajax.aspnetcdn.com/ajax/knockout/knockout-3.4.2.js"></script>
-<script src="js/map.js" async defer></script>
-<script src="js/model.js" async defer></script>
-<script src="js/Viewmodel.js" async defer></script>
-<script async src="https://maps.googleapis.com/maps/api/js?libraries=places&key=AIzaSyDkFyT5P5CLI9vP0pVd8WBvhBQRM6lU8N0&callback=initMap" onerror="mapError()"></script>
 
 </html>
