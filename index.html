@@ -1,5 +1,6 @@
 <!doctype html>
 <html lang="en">
+
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -9,6 +10,7 @@
     <link rel="stylesheet" href="css/app.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Slabo+27px">
 </head>
+
 <body>
     <div class="container">
         <div class="row">
@@ -43,5 +45,6 @@
 <script src="js/map.js" async defer></script>
 <script src="js/model.js" async defer></script>
 <script src="js/Viewmodel.js" async defer></script>
-<script src="https://maps.googleapis.com/maps/api/js?libraries=places&key=AIzaSyDkFyT5P5CLI9vP0pVd8WBvhBQRM6lU8N0&callback=initMap" async defer></script>
+<script async src="https://maps.googleapis.com/maps/api/js?libraries=places&key=AIzaSyDkFyT5P5CLI9vP0pVd8WBvhBQRM6lU8N0&callback=initMap" onerror="mapError()"></script>
+
 </html>

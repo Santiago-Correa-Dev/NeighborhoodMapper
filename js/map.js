@@ -174,6 +174,8 @@ function initMap() {
     ko.applyBindings(new Viewmodel());
 }
 
-function mapError() {
-    document.getElementById('error').innerHTML = "Error in Map!";
+document.getElementById('Mymap').addEventListener('error', mapError);
+
+function mapError(){
+    alert('error loading the map');
 }
