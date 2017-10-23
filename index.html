@@ -1,35 +1,47 @@
 <!doctype html>
 <html lang="en">
-
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Neighbourhood Map</title>
+    <title>Neighborhood Map</title>
     <link rel="stylesheet" href="css/normalize.css">
-    <link rel="stylesheet" href="css/skeleton.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
     <link rel="stylesheet" href="css/app.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Slabo+27px">
 </head>
-
 <body>
-    <!-- Filter -->
-    <div class="row">
-        <!-- Map -->
-        <div class="ten columns">
-            <div id="Mymap"></div>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <form>
+                    <div>
+                        <h3>Look for one of my favorite places</h3>
+                        <input class="col-sm-12 input" type="text" name="searchbox" id="searchbox" data-bind="value: searchFiltertext, valueUpdate: 'afterkeydown', event: {keyup: filterList}" placeholder="eg : Look for a place">
+                    </div>
+                </form>
+            </div>
         </div>
-        <div class="two columns">
-            <form class="MapFilter">
-                <input id="locationfinder" type="text" name="MapFilter" placeholder="Look for a location">
-                <input id="submit" type="submit" value="Submit">
-                <div class="recommended places" data-bind="text: personName"></div>
-            </form>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <ul data-bind="foreach: mapmarkerdata">
+                        <li class="col-md-12 col-sm-6" data-bind="text: title, click: $parent.setMarkers, visible:showItem"></li>
+                    </ul>
+                </div>
+            </div>
         </div>
-    </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12" id="Mymap"></div>
+                <div id="error">
+                    <h4 data-bind="text: error"></h4>
+                </div>
+            </div>
+        </div>
 </body>
 <script src="https://ajax.aspnetcdn.com/ajax/knockout/knockout-3.4.2.js"></script>
+<script src="js/map.js" async defer></script>
 <script src="js/model.js" async defer></script>
-<script src="js/app.js" async defer></script>
+<script src="js/Viewmodel.js" async defer></script>
 <script src="http://maps.googleapis.com/maps/api/js?libraries=places&key=AIzaSyDkFyT5P5CLI9vP0pVd8WBvhBQRM6lU8N0&callback=initMap" async defer></script>
-
 </html>

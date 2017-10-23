@@ -6,15 +6,8 @@
 
 body {
     font-family: 'Slabo 27px', serif;
+    text-align: center;
 }
-
-
-/* Skeleton */
-
-.columns {
-    margin-left: 2%;
-}
-
 
 /* Map */
 
@@ -24,14 +17,18 @@ body {
     margin: 0;
 }
 
-/* Filter */
-#submit {
-    padding: 0;
-    width: 80px;
+/* Input */
+
+.input {
+    margin-left: 50px;
 }
 
-/* Marker content */
+/* List */
 
-.marker-content {
-	width: 200px;
+li {
+    list-style: none;
+}
+
+li:hover {
+    cursor: pointer;
 }
