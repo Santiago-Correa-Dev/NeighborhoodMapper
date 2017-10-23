@@ -26,6 +26,7 @@ let Viewmodel = function() {
         self.mapmarkerdata.push(marker);
     }
 
+
     self.addfoursquare = function(marker) {
         // Foursquare api.
         let foursquare = 'https://api.foursquare.com/v2/venues/' + marker.venues + '?client_id=L5CNUE1HNJSITDWYN1CJSYCHBOE324PAQILEGCYSBCDKZ4NH&client_secret=G4JAEF5OWTGZGETAYWVUMURAPBKC4KANKE32XV2EAQGXAF4N&v=20171021&m=foursquare';
@@ -84,6 +85,12 @@ let Viewmodel = function() {
     };
 
 
+    self.toggleBounce = function(marker) {
+        marker.setAnimation(google.maps.Animation.BOUNCE);
+        setTimeout(function() {
+            marker.setAnimation(null);
+        }, 1200);
+    };
 
     // This function is available to show all markers.
     self.showAll = function(marker) {
@@ -110,7 +117,7 @@ let Viewmodel = function() {
         self.currentLocation = location;
 
         Name = function() {
-            if (self.currentLocation.name === '' || self.currentLocation.name === undefined) {
+            if (self.currentLocation.name === undefined) {
                 return " is nearby : Unknown";
             } else {
                 return "is nearby : " + self.currentLocation.name;
@@ -118,9 +125,8 @@ let Viewmodel = function() {
         };
 
         var InfoWindow = '<div>' + self.currentLocation.title + '</div>' + "<div>" + Name() + '</div>';
-
+        self.toggleBounce(location);
         infowindow.setContent(InfoWindow);
-
         infowindow.open(map, location);
     };
 };
